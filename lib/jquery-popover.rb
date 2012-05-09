@@ -2,6 +2,6 @@ require "jquery-popover/version"
 
 module Jquery
   module Popover
-    # Your code goes here...
+    require 'jquery-popover/engine'
   end
 end
