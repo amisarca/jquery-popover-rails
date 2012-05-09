@@ -14,4 +14,6 @@ Gem::Specification.new do |gem|
   gem.name          = "jquery-popover"
   gem.require_paths = ["lib"]
   gem.version       = Jquery::Popover::VERSION
+
+  gem.add_dependency 'jquery-rails', '>= 2.0.0'
 end
