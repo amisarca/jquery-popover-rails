@@ -48,35 +48,35 @@ Popover markup consist of two parts:
 
 Sample markup:
 
-  <a class="trigger" href="#popover1">Open Popover</a>
-  <div id="popover1">Popover FTW!</div>
+    <a class="trigger" href="#popover1">Open Popover</a>
+    <div id="popover1">Popover FTW!</div>
 
 The popover element can live anywhere on the page. The script will automatically position the popover against the trigger.
 
 You will also typically want to add `position: absolute;` to your popover element, otherwise jQuery UI Position will try to use relative positioning.
 
-  #popover1 {
-    position: absolute;
-  }
+    #popover1 {
+      position: absolute;
+    }
 
 Or better yet, use a generic class:
 
-  .popover {
-    position: absolute;
-  }
+    .popover {
+      position: absolute;
+    }
 
 Invoke the script on the trigger elements:
 
-  $('.trigger').popover();
+    $('.trigger').popover();
 
 The popover script will find the associated popover for a trigger by looking at the value of the `href` attribute.
 
 You can also pass options. This would make the popover appear at the right-top edge of the trigger:
 
-  $('.trigger').popover({
-    my: 'left bottom', // of popover
-    at: 'right top', // of trigger
-  });
+    $('.trigger').popover({
+      my: 'left bottom', // of popover
+      at: 'right top', // of trigger
+    });
 
 ### Options
 
@@ -91,12 +91,12 @@ You can also pass options. This would make the popover appear at the right-top e
 
 You can access methods and data for a popover after it's been initialized via the data API.
 
-  $('.trigger').data('popover').hide(); // .hidePopover(event) can be used, but will stop propagation of the event
-  $('.trigger').data('popover').opts.my // value of 'my' option for this instance
+    $('.trigger').data('popover').hide(); // .hidePopover(event) can be used, but will stop propagation of the event
+    $('.trigger').data('popover').opts.my // value of 'my' option for this instance
 
 Duck-typing the constructor function for popovers is possible by changing:
 
-  $.fn.popover.Popover
+    $.fn.popover.Popover
 
 ## Contributing
 
