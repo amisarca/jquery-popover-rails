@@ -1,5 +1,5 @@
 /*!
- * CF Popover v1.1
+ * CF Popover v1.3
  * A lightweight framework for positioning iPad-style popover elements against triggers.
  *
  * Copyright 2011-2012, Crowd Favorite (http://crowdfavorite.com)
@@ -50,36 +50,24 @@
 		 */
 		flop: {
 			left: function (position, data) {
-				var cPosition = data.collisionPosition,
-					$popover = $(this),
-					c = 'flopped-x',
-					out;
+				var $popover = $(this),
+					startPositionLeft = position.left;
 				
-				/* Run the original first -- it modifies position
-				and data by reference. Store return value
-				anyway, since we want to make sure if they do
-				decide to return something in future the API
-				isn't broken */
-				out = uiPosition.flip.left(position, data);
-				
-				(cPosition.left !== position.left) ? $popover.addClass(c) : $popover.removeClass(c);
+				// Modifies position and data by reference
+				var out = uiPosition.flip.left(position, data);
+
+				$popover.toggleClass('flopped-x', position.left !== undefined && position.left !== startPositionLeft);
 				
 				return out;
 			},
 			top: function (position, data) {
-				var cPosition = data.collisionPosition,
-					$popover = $(this),
-					c = 'flopped-y',
-					out;
-					
-				/* Run the original first -- it modifies position
-				and data by reference. Store return value
-				anyway, since we want to make sure if they do
-				decide to return something in future the API
-				isn't broken */
-				out = uiPosition.flip.top(position, data);
-				
-				(cPosition.top !== position.top) ? $popover.addClass(c) : $popover.removeClass(c);
+				var $popover = $(this),
+					startPositionTop = position.top;
+
+				// Modifies position and data by reference
+				var out = uiPosition.flip.top(position, data);
+
+				$popover.toggleClass('flopped-y', position.top !== undefined && position.top !== startPositionTop);
 				
 				return out;
 			}
